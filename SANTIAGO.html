@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio - Jheryll Kane Santiago</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #0d1b2a, #1b263b, #000);
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+    }
+
+    /* Animated background gradient */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at center, rgba(42,157,244,0.2), transparent 70%);
+      animation: pulse 6s infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes pulse {
+      from { opacity: 0.4; transform: scale(1); }
+      to { opacity: 0.8; transform: scale(1.2); }
+    }
+
+    /* Floating glowing particles */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      animation: floaty 15s infinite ease-in-out;
+    }
+    .particle:nth-child(1) { width: 8px; height: 8px; top: 20%; left: 30%; animation-duration: 12s; background: #2a9df4; }
+    .particle:nth-child(2) { width: 12px; height: 12px; top: 50%; right: 25%; animation-duration: 18s; background: #ccc; }
+    .particle:nth-child(3) { width: 10px; height: 10px; bottom: 15%; left: 15%; animation-duration: 20s; background: #999; }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); opacity: 0.8; }
+      50% { transform: translateY(-40px); opacity: 1; }
+    }
+
+    /* Title */
+    .portfolio-title {
+      margin: 30px 0 15px;
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-family: "Cooper Black", serif;
+      color: #2a9df4;
+      text-shadow: 3px 3px 10px #000, 0 0 15px #2a9df4;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* Center Section */
+    .main-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Button container */
+    .buttons {
+      margin: 20px 0;
+    }
+
+    button {
+      margin: 10px;
+      padding: 15px 35px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(145deg, #1f3c88, #0d1b2a);
+      color: white;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px #000;
+      border-radius: 12px;
+      transition: 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: rotate(45deg);
+      transition: 0.5s;
+    }
+
+    button:hover::before {
+      top: -20%; left: -20%;
+    }
+
+    button:hover {
+      transform: translateY(-5px) scale(1.08);
+      box-shadow: 0 8px 20px #000;
+      background: linear-gradient(145deg, #2a9df4, #0f2147);
+    }
+
+    /* Content Box */
+    .content {
+      margin: 25px auto;
+      padding: 25px;
+      background: #2e2e2e;
+      color: #f5f5f5;
+      font-size: 18px;
+      max-width: 700px;
+      border: 2px solid #2a9df4;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(42,157,244,0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .content:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 35px rgba(42,157,244,0.6);
+    }
+
+    .content h2 {
+      color: #2a9df4;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    /* Footer */
+    .footer-info {
+      font-size: 1.2rem;
+      font-family: "Cooper Black", serif;
+      color: #ddd;
+      text-shadow: 2px 2px 0 #000;
+      z-index: 2;
+      line-height: 1.6;
+      position: relative;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background particles -->
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+
+  <!-- Top Title -->
+  <div class="portfolio-title">My Portfolio</div>
+
+  <!-- Main Section -->
+  <div class="main-section">
+    <div class="buttons">
+      <button onclick="showContent('act1')">Act 1</button>
+      <button onclick="showContent('act2')">Act 2</button>
+      <button onclick="showContent('act3')">Act 3</button>
+    </div>
+
+    <div class="content" id="contentBox">
+      <p>Click a button above to view content.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-info">
+    Jheryll Kane Santiago<br>
+    CPE 4<br><br>
+    📧 Email: s.jheryll.santiago@sscr.edu <br> 
+    📱 Contact: 09666583562
+  </div>
+
+  <script>
+    function showContent(act) {
+      let content = document.getElementById('contentBox');
+      if (act === 'act1') {
+        content.innerHTML = "<h2>Act 1</h2><p>This is the content for Act 1. You can put your project or activity details here.</p>";
+      } else if (act === 'act2') {
+        content.innerHTML = "<h2>Act 2</h2><p>This is the content for Act 2. Showcase your work, achievements, or projects here.</p>";
+      } else if (act === 'act3') {
+        content.innerHTML = "<h2>Act 3</h2><p>This is the content for Act 3. Highlight future goals or extra information here.</p>";
+      }
+    }
+  </script>
+
+</body>
+</html>
