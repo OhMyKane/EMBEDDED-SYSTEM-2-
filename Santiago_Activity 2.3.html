@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Frameset Simulation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Masculine Banner */
+    #banner {
+      background: linear-gradient(135deg, #0a1f44, #1e3c72, #2a5298); /* Navy gradient */
+      text-align: center;
+      padding: 25px;
+      color: white;
+      border-bottom: 8px solid #222; /* Strong bold line at bottom */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    #banner h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    #banner h2, #banner h3, #banner h4 {
+      margin: 5px 0;
+      font-weight: normal;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    #container {
+      display: flex;
+      height: calc(100vh - 120px);
+    }
+    #menu {
+      width: 200px;
+      background: #f0f0f0;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+    #menu a {
+      display: block;
+      margin: 12px 0;
+      text-decoration: none;
+      color: darkblue;
+      font-weight: bold;
+    }
+    #menu a:hover {
+      color: red;
+    }
+    #content {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    td, th {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <!-- Banner -->
+  <div id="banner">
+    <h1>Student Project Website</h1>
+    <h2>Jheryll Kane A. Santiago</h2>
+    <h3>BSCPE 4</h3>
+    <h4>Instructor: Lozada, Paolo Roberto</h4>
+  </div>
+
+  <!-- Frames simulation -->
+  <div id="container">
+    <!-- Menu -->
+    <div id="menu">
+      <a href="#home" onclick="showPage('home')">Home</a>
+      <a href="#resume" onclick="showPage('resume')">Resume</a>
+      <a href="#schedule" onclick="showPage('schedule')">Schedule</a>
+    </div>
+
+    <!-- Content -->
+    <div id="content">
+      <!-- Home -->
+      <div id="home" class="page">
+        <h2>Welcome!</h2>
+        <p>This is the home page. Use the menu on the left to view my resume and schedule.</p>
+      </div>
+
+      <!-- Resume -->
+      <div id="resume" class="page" style="display:none;">
+        <h2>Pedro Dela Cruz </h2>
+        <p><b>Address:</b> 11 Bayani Ave., Manila</p>
+        <p><b>Phone:</b> (632) 111-1111</p>
+        <hr>
+
+        <h3>Objectives</h3>
+        <p>
+          Master’s degree graduate, interested in a telecommunications position. Highly skilled in the use of computers, 
+          audio/video and the uplink/downlink aspects of satellite communications. Interested in positions with a strong 
+          international component. Willing to travel.
+        </p>
+
+        <h3>Education</h3>
+        <p><b>Ateneo De Manila (1994–1996)</b><br>
+        Graduated May, 1996: M.A. International Telecommunications<br>
+        Grade Point Average: 3.5 overall, 3.9 in major<br>
+        Dean’s List: September 1994–1996<br>
+        Member, Phi Alpha Omega Honor Society</p>
+
+        <p><b>University of the Philippines (1991–1994)</b><br>
+        Graduated May, 1994: B.A. International Studies<br>
+        Grade Point Average: 4.0 overall, 4.0 in major<br>
+        Dean’s List: September 1991–May 1994<br>
+        President, Honor Key Society</p>
+
+        <h3>Employment</h3>
+        <p><b>Satellite Technician</b> (Front Range Media Inc., 1993–1994):<br>
+        Monitored satellite uplink/downlink procedures to ensure quality video transmissions. Aided technicians with 
+        transmission problems. Assisted in the assembly and maintenance of uplink facility.</p>
+
+        <p><b>Technical Assistant</b> (Mountain View Bank, 1992–1993):<br>
+        Managed data processing system. Handled user requests and discussed programming options. Managed delivery service.</p>
+      </div>
+
+      <!-- Schedule -->
+      <div id="schedule" class="page" style="display:none;">
+        <h2>Home Cable Weekly Prime Time Schedule</h2>
+        <table>
+          <tr>
+            <th>Time</th>
+            <th>ABS-CBN</th>
+            <th>GMA</th>
+            <th>TV5</th>
+          </tr>
+
+          <tr>
+            <td>7:00 - 7:30 PM</td>
+            <td rowspan="2">FPJ’s Batang Quiapo</td>
+            <td rowspan="2">24 Oras</td>
+            <td rowspan="3">Sing Galing</td>
+          </tr>
+          <tr>
+            <td>7:30 - 8:00 PM</td>
+          </tr>
+
+          <tr>
+            <td>8:00 - 8:30 PM</td>
+            <td rowspan="2">The Iron Heart</td>
+            <td rowspan="3">Maria Clara at Ibarra</td>
+          </tr>
+          <tr>
+            <td>8:30 - 9:00 PM</td>
+            <td rowspan="2">Wanted sa Radyo (Tulfo)</td>
+          </tr>
+
+          <tr>
+            <td>9:00 - 9:30 PM</td>
+            <td rowspan="2">Dirty Linen</td>
+          </tr>
+
+          <tr>
+            <td>9:30 - 10:00 PM</td>
+            <td>Kapuso Mo, Jessica Soho</td>
+            <td>Frontline Pilipinas</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script to switch pages -->
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(function(page) {
+        page.style.display = 'none';
+      });
+      document.getElementById(pageId).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
